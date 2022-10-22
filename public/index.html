@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+	<meta name="generator" content="Hugo 0.80.0" />
+    
+
+<meta name="description" content="Hardcoded description; the author should update :)" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CoraNet. Cuando 28800 baudios son suficientes</title>
+    
+<link rel="icon" type="image/png" href="/coranet/images/favicon.png" />
+<link rel="stylesheet" type="text/css" href="/coranet/css/style.min.7892230e857032ff96dc5fd5e99554ea3a82c4e51f273d20cf5cf5bb441f71ef.css" integrity="sha256-eJIjDoVwMv&#43;W3F/V6ZVU6jqCxOUfJz0gz1z1u0Qfce8=">
+<link rel="stylesheet" type="text/css" href="/coranet/css/icons.css">
+
+  </head>
+  <body>
+    
+    
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    
+
+    
+    
+    <section class="hero is-fullheight is-default is-bold">
+  
+
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/coranet/images/logos/coranet.svg" alt="" width="305" height="64">
+      </a>
+      <a class="navbar-item is-hidden-desktop is-hidden-tablet">
+        <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+      <div id="navbar-menu" class="navbar-menu is-static">
+        <div class="navbar-start">
+          <a class="navbar-item is-hidden-mobile">
+            <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+              <svg width="1000px" height="1000px">
+                <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+                <path class="path2" d="M 300 500 L 700 500"></path>
+                <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+              </svg>
+              <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+            </div>
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <a href="/" class="navbar-item is-secondary">
+            Cobertura
+          </a>
+          <a href="/" class="navbar-item is-secondary">
+            Precio
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Servicios
+            </a>
+
+            <div class="navbar-dropdown">
+              <a href="/" class="navbar-item">
+                IRC
+              </a>
+              <a href="/" class="navbar-item">
+                UseNet
+              </a>
+              <a href="/" class="navbar-item">
+                GIFs animados (Nuevo!)
+              </a>
+            </div>
+          </div>
+          <a href="/" class="navbar-item">
+            <span class="button signup-button rounded secondary-btn raised">
+              Área clientes
+            </span>
+          </a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+  
+
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/coranet/images/logos/coranet.svg" alt="" width="305" height="305">
+      </a>
+      <a class="navbar-item is-hidden-desktop is-hidden-tablet">
+        <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+          <svg width="1000px" height="1000px">
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path2" d="M 300 500 L 700 500"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+          </svg>
+          <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+      <div class="navbar-start">
+        <a class="navbar-item is-hidden-mobile">
+          <div id="cloned-menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+              <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+              <path class="path2" d="M 300 500 L 700 500"></path>
+              <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            </svg>
+            <button id="cloned-menu-icon-trigger" class="menu-icon-trigger"></button>
+          </div>
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <a href="/" class="navbar-item is-secondary">
+          Cobertura
+        </a>
+        <a href="/" class="navbar-item is-secondary">
+          Precio
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Servicios
+          </a>
+
+          <div class="navbar-dropdown">
+            <a href="/" class="navbar-item">
+              IRC
+            </a>
+            <a href="/" class="navbar-item">
+              UseNet
+            </a>
+            <a href="/" class="navbar-item">
+              GIFs animados (Nuevo!)
+            </a>
+          </div>
+        </div>
+        <a href="/" class="navbar-item">
+          <span class="button signup-button rounded secondary-btn raised">
+            Área clientes
+          </span>
+        </a>
+      </div>
+    </div>
+</div>
+</nav>
+
+  
+<div class="hero-body">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column is-5 is-offset-1 landing-caption">
+        <h1 class="title is-1 is-bold is-spaced">
+          ¡Cámbiate al par de cobre!
+        </h1>
+        
+        <h2 class="subtitle is-5 is-muted">
+          Modem Zixel de 28800 baudios con acceso al IRC. ¡Consigue un teléfono góndola gratis al darte de alta con nosotros!
+        </h2>
+        
+        <p>
+          <a class="button cta rounded primary-btn raised" href="#">
+            Consulta cobertura
+          </a>
+        </p>
+      </div>
+      <div class="column is-5 is-offset-1">
+        <figure class="image is-4by3">
+          <img src="/coranet/images/illustrations/Computer.svg" alt="Description">
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="hero-foot mb-20">
+  <div class="container">
+    <div class="tabs is-centered">
+      <ul>
+        <li>
+          <a>
+            <img class="partner-logo" src="/coranet/images/logos/clients/systek.svg">
+          </a>
+        </li>
+        <li>
+          <a>
+            <img class="partner-logo" src="/coranet/images/logos/clients/tribe.svg">
+          </a>
+        </li>
+        <li>
+          <a>
+            <img class="partner-logo" src="/coranet/images/logos/clients/kromo.svg">
+          </a>
+        </li>
+        <li>
+          <a>
+            <img class="partner-logo" src="/coranet/images/logos/clients/infinite.svg">
+          </a>
+        </li>
+        <li>
+          <a>
+            <img class="partner-logo" src="/coranet/images/logos/clients/gutwork.svg">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+    
+
+    
+    
+<section class="section section-feature-grey is-medium" id="section1">
+  <div class="container">
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2">Velocidad de vértigo</h2>
+      <h3 class="subtitle is-5 is-muted">conexión de hasta 28800 baudios</h3>
+      <div class="divider is-centered"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="columns">
+        <div class="column is-one-third">
+          <div class="feature-card is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft">
+            <div class="card-title">
+              <h4>IRC</h4>
+            </div>
+            <div class="card-icon">
+                <img src="/coranet/images/illustrations/icons/mouse-globe.svg">
+            </div>
+            <div class="card-text">
+                <p>Chatea con un chorro de gente sin necesidad de ratón</p>
+            </div>
+            <div class="card-action">
+              <a href="/" class="button btn-align-md accent-btn raised">12 usuarios en línea</a>
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="feature-card is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft">
+            <div class="card-title">
+              <h4>Tus datos en la nube</h4>
+            </div>
+            <div class="card-icon">
+                <img src="/coranet/images/illustrations/icons/laptop-cloud.svg">
+            </div>
+            <div class="card-text">
+                <p>Sube hasta 256kb de texto y GIFs animados</p>
+            </div>
+            <div class="card-action">
+              <a href="/" class="button btn-align-md accent-btn raised">Compara</a>
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="feature-card is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft">
+            <div class="card-title">
+              <h4>Siempre online</h4>
+            </div>
+            <div class="card-icon">
+                <img src="/coranet/images/illustrations/icons/plug-cloud.svg">
+            </div>
+            <div class="card-text">
+                <p>Menos si tu pareja quiere usar el teléfono</p>
+            </div>
+            <div class="card-action">
+              <a href="/" class="button btn-align-md accent-btn raised">Date de alta</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+
+    
+    
+<section class="section is-medium" id="section2">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">Internet como no lo habías visto</h1>
+        <h3 class="subtitle is-5 is-muted">desde 1996</h3>
+        <div class="divider"></div>
+      </div>
+      <div class="column is-7 mt-60">
+        <article class="media icon-box">
+          <figure class="media-left">
+            <p class="image">
+              <img src="/coranet/images/illustrations/icons/laptop-globe.svg">
+            </p>
+          </figure>
+          <div class="media-content mt-50">
+            <div class="content">
+              <p>
+                <span class="icon-box-title">Modem Zyxel 28800 baudios</span>
+
+                <span class="icon-box-text">Nadie necesita una conexión de fibra con nuestro potente módem. Conecta el cable de tu teléfono góndola y navega por el internete más rápido que lo que tarda en arrancar un Apple II.</span>
+              </p>
+            </div>
+          </div>
+        </article>
+        <article class="media icon-box">
+          <figure class="media-left">
+            <p class="image">
+              <img src="/coranet/images/illustrations/icons/doc-sync.svg">
+            </p>
+          </figure>
+          <div class="media-content mt-50">
+            <div class="content">
+              <p>
+                <span class="icon-box-title">Tu propio buzón POP3</span>
+
+                <span class="icon-box-text">Descarga tu correo en menos de 15 minutos y envía correos de hasta 1Mb</span>
+              </p>
+            </div>
+          </div>
+        </article>
+        <article class="media icon-box">
+          <figure class="media-left">
+            <p class="image">
+              <img src="/coranet/images/illustrations/icons/laptop-cable.svg">
+            </p>
+          </figure>
+          <div class="media-content mt-50">
+            <div class="content">
+              <p>
+                <span class="icon-box-title">Accede desde cualquier parte</span>
+
+                <span class="icon-box-text">Puedes conectarte desde cualquier parte de la casa, te regalamos un cable de 15 metros para que muevas tu módem por toda la casa!</span>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+    
+
+    
+
+    
+    
+<section class="section is-medium section-secondary" id="section4">
+  <div class="container">
+
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2 light-text is-spaced">¡Nuestos clientes nos avalan!</h2>
+      <h3 class="subtitle is-5 light-text">Mira lo que dicen de nosotros algunos de nuestros clientes, que para nada son inventados ni les pagamos por decir esto.</h3>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="columns is-vcentered">
+        <div class="column is-4">
+          <figure class="testimonial">
+            <blockquote>
+              Antes perdía el tiempo con Netflix y Tiktok, ahora como tardo de media 20 minutos en conectarme para leer el correo, leo muchos libros mi vida sexual es mejor que nunca.
+            </blockquote>
+            <div class="author">
+              <img src="/coranet/images/illustrations/faces/1.png" alt=""/>
+              <h5>Clara De Huevo</h5>
+              <span>Cocinera</span>
+            </div>
+          </figure>
+        </div>
+        <div class="column is-4">
+          <figure class="testimonial">
+            <blockquote>
+              Me encanta el servicio de CoraNet, nunca falla, es todo fantástico y muy muy barato. Vamos que no vas a encontrar nada más molón en el mundo mundial.
+            </blockquote>
+            <div class="author">
+              <img src="/coranet/images/illustrations/faces/2.png" alt=""/>
+              <h5>Armando casitas</h5>
+              <span>Constructor</span>
+            </div>
+          </figure>
+        </div>
+        <div class="column is-4">
+          <figure class="testimonial">
+            <blockquote>
+              Que no te enteras contreras! Ahí te has quedao bacalao! Mola cantidubi dubi dubi, canti dubi dubi da. Y tal, y tal. La miedda de la Sole, que te doy con el mechero!
+            </blockquote>
+            <div class="author">
+              <img src="/coranet/images/illustrations/faces/3.png" alt=""/>
+              <h5>Chema Pamundi</h5>
+              <span>Viajero</span>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+
+    
+    <section class="section section-light-grey is-medium" id="section5">
+    <div class="container">
+        <div class="title-wrapper has-text-centered">
+            <h2 class="title is-2 is-spaced">Contacta con nosotros </h2>
+            <h3 class="subtitle is-5 is-muted">Te respondemos en menos de un més. O dos.</h3>
+            <div class="divider is-centered"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="columns">
+                <div class="column is-6 is-offset-3">
+                    <form>
+                        <div class="columns is-multiline">
+                            <div class="column is-6">
+                                <input class="input is-medium" type="text" placeholder="Tu nombre">
+                            </div>
+                            <div class="column is-6">
+                                <input class="input is-medium" type="email" placeholder="Tu email">
+                            </div>
+                            <div class="column is-12">
+                                <textarea class="textarea" rows="10" placeholder="Dinos algo de tu vida que no nos interese..."></textarea>
+                            </div>
+                            <div class="form-footer has-text-centered mt-10">
+                                <button class="button cta is-large primary-btn raised is-clear">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+
+    
+    
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="footer-logo">
+          <img src="/coranet/images/logos/coranet-mini.svg">
+        </div>
+      </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>Productos</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="/">
+                  Internet de banda estrecha
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  Módem Zyxel 28800
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  Compara nuestros servicios
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  Nuestra empresa
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>Ayuda</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="/">
+                  Cómo conectarte
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  Primeros pasos
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  Guía del IRC
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  Configuración correo POP3
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>Blog</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="/blog/first">
+                  Novedades
+                </a>
+              </li>
+              <li>
+                <a href="/blog/second">
+                  Nuestra empresa
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3>Redes que no usamos</h3>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" href="https://github.com/#">
+                  <span class="icon"><i class="fa fa-github"></i></span>
+                </a>
+                <a class="level-item" href="https://facebook.com/#">
+                  <span class="icon"><i class="fa fa-facebook"></i></span>
+                </a>
+                <a class="level-item" href="https://twitter.com/lucperkins">
+                  <span class="icon"><i class="fa fa-twitter"></i></span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+    
+    <div id="backtotop"><a href="#"></a></div>
+
+    
+    
+<div class="sidebar">
+  <div class="sidebar-header">
+    <img src="/coranet/images/logos/Mouse.svg">
+    <a class="sidebar-close" href="javascript:void(0);">
+      <i data-feather="x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      <li class="have-children">
+        <a href="#">
+          <span class="fa fa-user"></span>
+          Usuario
+        </a>
+        <ul>
+          <li>
+            <a href="/">
+              Perfil
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              Cuenta
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              Ajustes
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="have-children">
+        <a href="#">
+          <span class="fa fa-envelope"></span>
+          Mensajes
+        </a>
+        <ul>
+          <li>
+            <a href="/">
+              Nuevos
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              Enviar
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="have-children">
+        <a href="#">
+          <span class="fa fa-cog"></span>
+          Ajustes
+        </a>
+        <ul>
+          <li>
+            <a href="/">
+              Ajustes del módem
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              Ajustes IRC
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+    
+    
+
+
+    
+    <div id="backtotop"><a href="#"></a></div>
+
+    
+    
+<div class="sidebar">
+  <div class="sidebar-header">
+    <img src="/coranet/images/logos/Mouse.svg">
+    <a class="sidebar-close" href="javascript:void(0);">
+      <i data-feather="x"></i>
+    </a>
+  </div>
+  <div class="inner">
+    <ul class="sidebar-menu">
+      <li class="have-children">
+        <a href="#">
+          <span class="fa fa-user"></span>
+          Usuario
+        </a>
+        <ul>
+          <li>
+            <a href="/">
+              Perfil
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              Cuenta
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              Ajustes
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="have-children">
+        <a href="#">
+          <span class="fa fa-envelope"></span>
+          Mensajes
+        </a>
+        <ul>
+          <li>
+            <a href="/">
+              Nuevos
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              Enviar
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="have-children">
+        <a href="#">
+          <span class="fa fa-cog"></span>
+          Ajustes
+        </a>
+        <ul>
+          <li>
+            <a href="/">
+              Ajustes del módem
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              Ajustes IRC
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="/coranet/js/fresh.js"></script>
+<script src="/coranet/js/jquery.panelslider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  </body>
+</html>

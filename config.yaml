@@ -1,0 +1,187 @@
+baseURL: http://jacorachan.github.com/coranet/
+languageCode: es-es
+title: CoraNet. Cuando 28800 baudios son suficientes
+theme: hugo-fresh
+googleAnalytics: # Put in your tracking code without quotes like this: UA-XXXXXX...
+# Disables warnings
+disableKinds:
+- taxonomy
+- taxonomyTerm
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # Allows you to write raw html in your md files
+
+params:
+  # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
+  openGraph: false
+  # Used as meta data; describe your site to make Google Bots happy
+  description: 
+  # Preloader ensures images are loaded before displaying to the user. If you don't want it uncomment to set it to false
+  # preloader: false
+  navbarlogo:
+  # Logo (from static/images/logos/___)
+    image: logos/coranet.svg
+    link: /
+    # Default width/height. Uncomment if you need to change
+    width: 305
+    height: 64
+  font:
+    name: "Segoe UI"
+    sizes: [400,600]
+  hero:
+    # Main hero title
+    title: ¡Cámbiate al par de cobre!
+    # Hero subtitle (optional)
+    subtitle: Modem Zixel de 28800 baudios con acceso al IRC. ¡Consigue un teléfono góndola gratis al darte de alta con nosotros!
+    # Button text
+    buttontext: Consulta cobertura
+    # Where the main hero button links to
+    buttonlink: "#"
+    # Hero image (from static/images/___)
+    image: illustrations/Computer.svg
+    # Footer logos (from static/images/logos/clients/___.svg)
+    clientlogos:
+    - systek
+    - tribe
+    - kromo
+    - infinite
+    - gutwork
+  # Customizable navbar. For a dropdown, add a "sublinks" list.
+  navbar:
+  - title: Cobertura
+    url: /
+  - title: Precio
+    url: /
+  - title: Servicios
+    sublinks:
+    - title: IRC
+      url: /
+    - title: UseNet
+      url: /
+    - title: GIFs animados (Nuevo!)
+      url: /
+  - title: Área clientes
+    url: /
+    button: true
+  sidebar:
+    # Logo (from /images/logos/___.svg)
+    logo: Mouse
+    sections:
+    - title: Usuario
+      icon: user
+      links:
+      - text: Perfil
+        url: /
+      - text: Cuenta
+        url: /
+      - text: Ajustes
+        url: /
+    - title: Mensajes
+      icon: envelope
+      links:
+      - text: Nuevos
+        url: /
+      - text: Enviar
+        url: /
+    - title: Ajustes
+      icon: cog
+      links:
+      - text: Ajustes del módem
+        url: /
+      - text: Ajustes IRC
+        url: /
+  section1:
+    title: Velocidad de vértigo
+    subtitle: conexión de hasta 28800 baudios
+    tiles:
+    - title: IRC
+      icon: mouse-globe
+      text: Chatea con un chorro de gente sin necesidad de ratón
+      url: /
+      buttonText: 12 usuarios en línea
+    - title: Tus datos en la nube
+      icon: laptop-cloud
+      text: Sube hasta 256kb de texto y GIFs animados
+      url: /
+      buttonText: Compara
+    - title: Siempre online
+      icon: plug-cloud
+      text: Menos si tu pareja quiere usar el teléfono
+      url: /
+      buttonText: Date de alta
+  section2:
+    title: Internet como no lo habías visto
+    subtitle: desde 1996
+    features:
+    - title: Modem Zyxel 28800 baudios
+      text: Nadie necesita una conexión de fibra con nuestro potente módem. Conecta el cable de tu teléfono góndola y navega por el internete más rápido que lo que tarda en arrancar un Apple II. 
+      # Icon (from /images/illustrations/icons/___.svg)
+      icon: laptop-globe
+    - title: Tu propio buzón POP3
+      text: Descarga tu correo en menos de 15 minutos y envía correos de hasta 1Mb
+      icon: doc-sync
+    - title: Accede desde cualquier parte
+      text: Puedes conectarte desde cualquier parte de la casa, te regalamos un cable de 15 metros para que muevas tu módem por toda la casa!
+      icon: laptop-cable
+  section4:
+    title: ¡Nuestos clientes nos avalan!
+    subtitle: Mira lo que dicen de nosotros algunos de nuestros clientes, que para nada son inventados ni les pagamos por decir esto.
+    clients:
+    - name: Clara De Huevo
+      quote: Antes perdía el tiempo con Netflix y Tiktok, ahora como tardo de media 20 minutos en conectarme para leer el correo, leo muchos libros mi vida sexual es mejor que nunca.
+      job: Cocinera
+      img: 1
+    - name: Armando casitas
+      quote: Me encanta el servicio de CoraNet, nunca falla, es todo fantástico y muy muy barato. Vamos que no vas a encontrar nada más molón en el mundo mundial.
+      job: Constructor
+      img: 2
+    - name: Chema Pamundi
+      quote: Que no te enteras contreras! Ahí te has quedao bacalao! Mola cantidubi dubi dubi, canti dubi dubi da. Y tal, y tal. La miedda de la Sole, que te doy con el mechero!
+      job: Viajero
+      img: 3
+  section5: true
+  footer:
+    # Logo (from /images/logos/___)
+    logo: coranet-mini.svg
+    # Social Media Title
+    socialmediatitle: Redes que no usamos
+    # Social media links (GitHub, Twitter, etc.). All are optional.
+    socialmedia:
+    - link: https://github.com/#
+      icon: github
+    - link: https://facebook.com/#
+      icon: facebook
+    - link: https://twitter.com/lucperkins
+      icon: twitter
+    bulmalogo: false
+    quicklinks:
+      column1:
+        title: "Productos"
+        links:
+        - text: Internet de banda estrecha
+          link: /
+        - text: Módem Zyxel 28800
+          link: /
+        - text: Compara nuestros servicios
+          link: /
+        - text: Nuestra empresa
+          link: /
+      column2:
+        title: "Ayuda"
+        links:
+        - text: Cómo conectarte
+          link: /
+        - text: Primeros pasos
+          link: /
+        - text: Guía del IRC
+          link: /
+        - text: Configuración correo POP3
+          link: /
+      column3:
+        title: "Blog"
+        links:
+        - text: Novedades
+          link: /blog/first
+        - text: Nuestra empresa
+          link: /blog/second
