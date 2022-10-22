@@ -1,4 +1,5 @@
 baseURL: http://jacorachan.github.com/coranet/
+publishDir: "docs"
 languageCode: es-es
 title: CoraNet. Cuando 28800 baudios son suficientes
 theme: hugo-fresh
