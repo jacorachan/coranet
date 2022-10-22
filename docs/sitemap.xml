@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://jacorachan.github.com/coranet/test/</loc>
+    <loc>https://jacorachan.github.io/coranet/test/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://jacorachan.github.com/coranet/</loc>
+    <loc>https://jacorachan.github.io/coranet/</loc>
   </url>
   
 </urlset>
