@@ -6924,7 +6924,7 @@ Testimonials Styles
 Responsive Styles
 ========================================================================== */
 @media (max-width: 650px) {
-  .image img {
+  .image-small img {
     width: 67px !important; } }
 
 @media (max-width: 767px) {
@@ -6951,7 +6951,7 @@ Responsive Styles
     margin-top: 0 !important; }
   .testimonial {
     margin: 0 auto; }
-  .image img {
+  .image-small img {
     width: 82px !important; } }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -6977,7 +6977,7 @@ Responsive Styles
     text-align: center !important; }
     .is-centered-tablet-portrait .divider {
       margin: 0 auto !important; }
-  .image img {
+  .image-small img {
     width: 99px !important; } }
 
 section:focus {

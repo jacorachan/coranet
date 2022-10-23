@@ -3,7 +3,7 @@ Responsive Styles
 ========================================================================== */
 
 @media (max-width: 650px) {
-    .image img {
+    .image-small img {
         width: 67px !important;
     }
 }
@@ -45,7 +45,7 @@ Responsive Styles
     .testimonial {
         margin: 0 auto;
     }
-    .image img {
+    .image-small img {
         width: 82px !important;
     }
 }
@@ -86,7 +86,7 @@ Responsive Styles
             margin: 0 auto !important;
         }
     }
-    .image img {
+    .image-small img {
         width: 99px !important;
     }
 }
