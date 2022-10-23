@@ -1845,7 +1845,8 @@ a.box:active {
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
   max-width: 100%;
   width: 100%;
-  line-height: 1.25; }
+  line-height: 1.25rem;
+  font-size: 1.25rem; }
   .input::-moz-placeholder,
   .textarea::-moz-placeholder {
     color: rgba(54, 54, 54, 0.3); }
@@ -2017,7 +2018,8 @@ a.box:active {
   min-width: 100%;
   padding: 0.625em;
   resize: vertical;
-  line-height: 1.25; }
+  line-height: 1.25rem;
+  font-size: 1.25rem; }
   .textarea:not([rows]) {
     max-height: 600px;
     min-height: 120px; }
@@ -2820,6 +2822,9 @@ a.box:active {
   .image.is-128x128 {
     height: 128px;
     width: 128px; }
+
+.image-small img {
+  width: 99px; }
 
 .notification {
   background-color: whitesmoke;
@@ -6918,6 +6923,10 @@ Testimonials Styles
 /* ==========================================================================
 Responsive Styles
 ========================================================================== */
+@media (max-width: 650px) {
+  .image img {
+    width: 67px !important; } }
+
 @media (max-width: 767px) {
   .landing-caption {
     text-align: center; }
@@ -6941,7 +6950,9 @@ Responsive Styles
   .pushed-image {
     margin-top: 0 !important; }
   .testimonial {
-    margin: 0 auto; } }
+    margin: 0 auto; }
+  .image img {
+    width: 82px !important; } }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .landing-caption {
@@ -6965,7 +6976,9 @@ Responsive Styles
   .is-centered-tablet-portrait {
     text-align: center !important; }
     .is-centered-tablet-portrait .divider {
-      margin: 0 auto !important; } }
+      margin: 0 auto !important; }
+  .image img {
+    width: 99px !important; } }
 
 section:focus {
   outline: none !important; }

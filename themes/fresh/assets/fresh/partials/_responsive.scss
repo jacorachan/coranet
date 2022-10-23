@@ -2,6 +2,12 @@
 Responsive Styles
 ========================================================================== */
 
+@media (max-width: 650px) {
+    .image img {
+        width: 67px !important;
+    }
+}
+
 @media (max-width: 767px) {
 
     .landing-caption {
@@ -38,6 +44,9 @@ Responsive Styles
     }
     .testimonial {
         margin: 0 auto;
+    }
+    .image img {
+        width: 82px !important;
     }
 }
 
@@ -76,5 +85,8 @@ Responsive Styles
         .divider {
             margin: 0 auto !important;
         }
+    }
+    .image img {
+        width: 99px !important;
     }
 }
